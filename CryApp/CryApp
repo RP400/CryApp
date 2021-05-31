@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=Pi Apps Settings
-Comment=Configure Pi-Apps or create an App
-Exec=python3 /home/pi/CryApp/Packages/CMTLauncher.py
-Icon=/home/pi/CryApp/icon.png
-Terminal=false
-Type=Application
-Categories=Utilitys;
