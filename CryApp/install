@@ -1,0 +1,13 @@
+#!/bin/bash
+
+DIRECTORY="$(dirname "$(dirname "$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )")")"
+
+function error {
+  echo -e "\\e[91m$1\\e[39m"
+  exit 1
+}
+
+git clone https://github.com/RP400/CryApp || error 'Failed to clone repository'
+mv ~/CryApp/CryApp ~/home/pi/.local/share/applications/ || error 'Failed to move application' 
+pip3 install guizero || error 'failed to indtall guizero'
+pip3 install mcpi || error 'Failed ton install mcpi'
