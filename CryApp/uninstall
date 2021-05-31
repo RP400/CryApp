@@ -1,0 +1,12 @@
+#!/bin/bash
+
+DIRECTORY="$(dirname "$(dirname "$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )")")"
+
+function error {
+  echo -e "\\e[91m$1\\e[39m"
+  exit 1
+}
+"${DIRECTORY}/purge-installed" "$(dirname "$0")" || exit 1
+
+rm -rf ~/CryApp || error 'Failed to uninstall folder'
+sudo rm -f ~/.local/share/applications/CryApp || error 'Failed to unistall app'
