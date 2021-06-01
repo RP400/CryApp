@@ -1,9 +1,7 @@
-#!/bin/bash
-
 #Variables
 AppName="CryApp"
 AppLocation="Menu > Accessories > $AppName"
-RepoUrl="https://github.com/RP400/CryApp"
+RepoUrl="https://github.com/RP400/CryApp/"
 export PW_PREFIX="$HOME/.local/share/pi-ware"
 PACMANG="$(cat $PW_PREFIX/inst-pref)"
 fwe=""
@@ -25,15 +23,12 @@ function warning {
   echo -e "\e[91m$2\e[39m"
   sleep "$1"
 }
-
-pip3 install mcpi
-pip3 install guizero
 #Main
 echo "Installing $AppName"
 #Clone repo
 git clone $RepoUrl|| error "Unable to clone ${AppName}'s repo!" exit
 #Cd into repo
-cd /home/pi/CryApp/CryApp/ || error "Unable to cd into ${AppName}!"
+cd /home/pi/pi-ware/apps/CryApp/CryApp/CryApp || error "Unable to cd into ${AppName}!"
 #Run install script
 bash install || error "Unable to run ${AppName}'s install script!"
 #Inform user that the install has finished
