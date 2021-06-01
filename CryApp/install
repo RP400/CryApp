@@ -7,6 +7,6 @@ function error {
   exit 1
 }
 
-mv ~/CryApp/CryApp/CryApp /home/pi/.local/share/applications/ || error 'Failed to move application' 
+mv /home/pi/pi-ware/apps/CryApp/CryApp/CryApp/CryApp /home/pi/.local/share/applications/ || error 'Failed to move application' 
 pip3 install guizero || error 'failed to indtall guizero'
 pip3 install mcpi || error 'Failed ton install mcpi'
