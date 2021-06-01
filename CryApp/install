@@ -7,7 +7,6 @@ function error {
   exit 1
 }
 
-git clone https://github.com/RP400/CryApp || error 'Failed to clone repository'
-mv ~/CryApp/CryApp ~/home/pi/.local/share/applications/ || error 'Failed to move application' 
+mv ~/CryApp/CryApp/CryApp /home/pi/.local/share/applications/ || error 'Failed to move application' 
 pip3 install guizero || error 'failed to indtall guizero'
 pip3 install mcpi || error 'Failed ton install mcpi'
