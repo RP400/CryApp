@@ -2,8 +2,8 @@
 
 #Variables
 AppName="CryApp"
-AppLocation="Menu > Accessories > $AppName"
-RepoUrl="https://github.com/RP400/CryApp/"
+AppLocation="Menu > Other > $AppName"
+RepoUrl="https://github.com/RP400/CryApp"
 export PW_PREFIX="$HOME/.local/share/pi-ware"
 PACMANG="$(cat $PW_PREFIX/inst-pref)"
 fwe=""
@@ -25,18 +25,23 @@ function warning {
   echo -e "\e[91m$2\e[39m"
   sleep "$1"
 }
+
 #Main
-echo "Installing $AppName"
 #Clone repo
+cd $HOME
 git clone $RepoUrl|| error "Unable to clone ${AppName}'s repo!" exit
 #Cd into repo
-cd /home/pi/pi-ware/apps/CryApp/CryApp/CryApp || error "Unable to cd into ${AppName}!"
-#Run install script
-bash install || error "Unable to run ${AppName}'s install script!"
+cd $HOME/CryApp/CryApp || error "Unable to cd into ${AppName}!"
+#Install dependencies
+pip3 install mcpi
+pip3 install guizero
+#Install app
+mv CryApp.desktop $HOME/.local/share/applications/ || error 'Failed to move application' 
 #Inform user that the install has finished
 #Check if finished with errors
 if [ "${fwe}" == "1" ]; then
   echo "This script finished with errors, Here are the errors: ${ers}"
+  sleep 1
   exit 1
 elif [ "${fwe}" == "0" ]; then
   echo "Successfully installed $AppName. You can find it in %AppLocation."
