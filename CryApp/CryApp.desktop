@@ -3,6 +3,6 @@ Name=CryApp
 Comment=Simple teleporter for MCPI (modded)
 Exec=python3 /home/pi/CryApp/Packages/CMTLauncher.py
 Icon=/home/pi/CryApp/icon.png
-Terminal=false
+Terminal=true
 Type=Application
 Categories=Utilitys;
